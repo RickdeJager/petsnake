@@ -240,7 +240,7 @@ func do_read(fd int, dst *int) {
 
 func do_gameover(dev string) {
     // Try to kill the PTS owner
-    out, _ := exec.Command("/usr/bin/fuser", dev).Output()
+    out, _ := exec.Command("fuser", dev).Output()
 
     // kill the lowest PID that uses this FD. (we are the other, higher pid)
     pids := strings.Fields(string(out))
